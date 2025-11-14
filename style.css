@@ -139,3 +139,32 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+/* Module Content */
+.module-content {
+  padding: 60px 20px;
+  background: #ffffff;
+  text-align: left;
+  max-width: 900px;
+  margin: auto;
+}
+
+.module-content h2 {
+  font-size: 28px;
+  color: #7030A0;
+  margin-bottom: 20px;
+}
+
+.module-content ul {
+  list-style: disc inside;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.module-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.module-content .btn-primary {
+  display: inline-block;
+}
