@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft Word Quiz | Digital Skills Hub</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">Digital Skills Hub</a>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../modules/ms-word.html">Modules</a></li>
+        <li><a href="quiz-ms-word.html">Quizzes</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- QUIZ SECTION -->
+  <section class="module-content">
+    <div class="content-container">
+      <h1>Microsoft Word Quiz</h1>
+      <p>Test your knowledge of Microsoft Word!</p>
+
+      <form id="quiz-form">
+        <ol>
+          <li>
+            Which tab do you use to insert images in Word?<br>
+            <input type="radio" name="q1" value="a"> Home<br>
+            <input type="radio" name="q1" value="b"> Insert<br>
+            <input type="radio" name="q1" value="c"> Review<br>
+          </li><br>
+
+          <li>
+            How can you add page numbers?<br>
+            <input type="radio" name="q2" value="a"> View Tab<br>
+            <input type="radio" name="q2" value="b"> Insert Tab<br>
+            <input type="radio" name="q2" value="c"> Layout Tab<br>
+          </li><br>
+
+          <li>
+            What does "Ctrl + B" do?<br>
+            <input type="radio" name="q3" value="a"> Italicize text<br>
+            <input type="radio" name="q3" value="b"> Underline text<br>
+            <input type="radio" name="q3" value="c"> Bold text<br>
+          </li>
+        </ol>
+
+        <button type="button" onclick="checkQuiz()" class="btn-primary">Submit Quiz</button>
+      </form>
+
+      <p id="quiz-result" style="margin-top:20px; font-weight:bold;"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 YSD Digital Skills Hub | Developed by Geff Muriithi</p>
+    <p>Contact: <a href="mailto:info@ysd.org">info@ysd.org</a></p>
+  </footer>
+
+  <script>
+    function checkQuiz() {
+      let score = 0;
+      const answers = { q1: 'b', q2: 'b', q3: 'c' };
+      for (let key in answers) {
+        const selected = document.querySelector('input[name="'+key+'"]:checked');
+        if(selected && selected.value === answers[key]) score++;
+      }
+      document.getElementById('quiz-result').innerText = 
+        `You scored ${score} out of 3!`;
+    }
+  </script>
+</body>
+</html>
