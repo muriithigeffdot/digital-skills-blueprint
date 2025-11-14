@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic IT Quiz | Digital Skills Hub</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">Digital Skills Hub</a>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../modules/basic-it.html">Modules</a></li>
+        <li><a href="quiz-basic-it.html">Quizzes</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- QUIZ SECTION -->
+  <section class="module-content">
+    <div class="content-container">
+      <h1>Basic IT Quiz</h1>
+      <p>Test your knowledge of the Basic IT module!</p>
+
+      <form id="quiz-form">
+        <ol>
+          <li>
+            What does CPU stand for?<br>
+            <input type="radio" name="q1" value="a"> Central Processing Unit<br>
+            <input type="radio" name="q1" value="b"> Computer Personal Unit<br>
+            <input type="radio" name="q1" value="c"> Central Programming Unit<br>
+          </li><br>
+
+          <li>
+            Which of these is an example of software?<br>
+            <input type="radio" name="q2" value="a"> Keyboard<br>
+            <input type="radio" name="q2" value="b"> Microsoft Word<br>
+            <input type="radio" name="q2" value="c"> Monitor<br>
+          </li><br>
+
+          <li>
+            What is the main function of an operating system?<br>
+            <input type="radio" name="q3" value="a"> Manage hardware and software<br>
+            <input type="radio" name="q3" value="b"> Design websites<br>
+            <input type="radio" name="q3" value="c"> Store files online<br>
+          </li>
+        </ol>
+
+        <button type="button" onclick="checkQuiz()" class="btn-primary">Submit Quiz</button>
+      </form>
+
+      <p id="quiz-result" style="margin-top:20px; font-weight:bold;"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 YSD Digital Skills Hub | Developed by Geff Muriithi</p>
+    <p>Contact: <a href="mailto:info@ysd.org">info@ysd.org</a></p>
+  </footer>
+
+  <script>
+    function checkQuiz() {
+      let score = 0;
+      const answers = { q1: 'a', q2: 'b', q3: 'a' };
+      for (let key in answers) {
+        const selected = document.querySelector('input[name="'+key+'"]:checked');
+        if(selected && selected.value === answers[key]) score++;
+      }
+      document.getElementById('quiz-result').innerText = 
+        `You scored ${score} out of 3!`;
+    }
+  </script>
+</body>
+</html>
