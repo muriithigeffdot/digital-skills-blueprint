@@ -27,6 +27,7 @@ function App() {
             <Route path='/announcements' element={<Announcements />} />
             <Route path='/feedback' element={<Feedback />} />
             <Route path='/dashboard' element={<Dashboard />} />
+<Route path="/register" element={<StudentRegistration />} />
           </Routes>
         </Layout>
         <EditorPanel />
@@ -34,5 +35,5 @@ function App() {
     </AppProvider>
   );
 }
-
+import StudentRegistration from './pages/StudentRegistration';
 export default App;
