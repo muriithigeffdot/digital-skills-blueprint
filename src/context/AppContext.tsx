@@ -1,3 +1,42 @@
+import { createContext, useContext, useState, ReactNode } from "react";
+
+interface Student {
+  name: string;
+  phone: string;
+  email: string;
+  selectedCourses: string[];
+  progress: string;
+  feedback: string;
+}
+
+interface AppContextType {
+  students: Student[];
+  addStudent: (student: Student) => void;
+}
+
+const AppContext = createContext<AppContextType | undefined>(undefined);
+
+export const AppProvider = ({ children }: { children: ReactNode }) => {
+  const [students, setStudents] = useState<Student[]>([]);
+
+  const addStudent = (student: Student) => {
+    setStudents((prev) => [...prev, student]);
+  };
+
+  return (
+    <AppContext.Provider value={{ students, addStudent }}>
+      {children}
+    </AppContext.Provider>
+  );
+};
+
+export const useAppContext = () => {
+  const context = useContext(AppContext);
+  if (!context) {
+    throw new Error("useAppContext must be used within AppProvider");
+  }
+  return context;
+};
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import { defaultContent } from '../content/content';
 
