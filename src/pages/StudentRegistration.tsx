@@ -36,11 +36,8 @@ export default function StudentRegistration() {
       progress,
       feedback,
     };
-
-    // Save to local storage (temporary database)
-    const saved = JSON.parse(localStorage.getItem("students") || "[]");
-    saved.push(studentData);
-    localStorage.setItem("students", JSON.stringify(saved));
+    
+    addStudent(studentData);
 
     setSubmitted(true);
 
