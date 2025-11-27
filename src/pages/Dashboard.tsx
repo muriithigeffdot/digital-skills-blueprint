@@ -1,3 +1,43 @@
+import { useAppContext } from "../context/AppContext";
+
+export default function Dashboard() {
+  const { students } = useAppContext();
+
+  return (
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Student Dashboard</h1>
+
+      {students.length === 0 ? (
+        <p>No students registered yet.</p>
+      ) : (
+        <table className="w-full border-collapse">
+          <thead>
+            <tr>
+              <th className="border px-4 py-2">Name</th>
+              <th className="border px-4 py-2">Phone</th>
+              <th className="border px-4 py-2">Email</th>
+              <th className="border px-4 py-2">Courses</th>
+              <th className="border px-4 py-2">Progress</th>
+              <th className="border px-4 py-2">Feedback</th>
+            </tr>
+          </thead>
+          <tbody>
+            {students.map((s, i) => (
+              <tr key={i}>
+                <td className="border px-4 py-2">{s.name}</td>
+                <td className="border px-4 py-2">{s.phone}</td>
+                <td className="border px-4 py-2">{s.email}</td>
+                <td className="border px-4 py-2">{s.selectedCourses.join(", ")}</td>
+                <td className="border px-4 py-2">{s.progress}</td>
+                <td className="border px-4 py-2">{s.feedback}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
+}
 import React, { useState } from 'react';
 import { toast } from 'sonner';
 
