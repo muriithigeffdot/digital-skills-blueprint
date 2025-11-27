@@ -1,3 +1,4 @@
+import { useAppContext } from "../context/AppContext";
 import { useState } from "react";
 
 const courseOptions = [
